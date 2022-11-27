@@ -13,3 +13,41 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+.card img {
+  max-width: 10em;
+  border-radius: 50%2;
+}
+
+.name {
+  margin: auto;
+  font-size: 1.25rem;
+}
+
+details,
+.card {
+  border: 1px solid #aaa;
+  border-radius: 0.5em;
+  padding: .5em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+summary {
+  font-weight: bold;
+  margin: -.5em -.5em 0;
+  padding: .5em;
+}
+
+details[open] {
+  padding: .5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: .5em;
+}
