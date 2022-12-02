@@ -1,3 +1,5 @@
-export default {
-    base: "/Ijazat-list/public"
-}
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+    base: "/Ijazat-list/"
+})
