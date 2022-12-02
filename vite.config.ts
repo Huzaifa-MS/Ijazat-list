@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-    base: "/Ijazat-list/public/"
+    base: "/Ijazat-list//"
 })
