@@ -2,30 +2,94 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
 }
 
 nav {
-  display: inline-block;
-  align-self: baseline;
+  font-size: 1.5rem;
+  background-color: forestgreen;
+  min-width: 100%;
+}
+
+nav>ul {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: scroll;
+  align-self: stretch;
+  list-style: none;
+  margin: 0em;
+  padding: 0.5em;
+}
+
+nav>ul>* {
+  padding: 0.5em;
+}
+
+nav>ul>ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  align-self: stretch;
+  margin: 0em auto;
+  padding: 0em;
+}
+
+nav ul li {
+  align-items: center;
+}
+
+nav>ul>ul>li>* {
+  padding: 0.5em 0.5em;
+}
+
+nav a {
+  color: white;
+}
+
+nav a:visited {
+  color: gold;
+}
+
+nav ul a:hover {
+  background-color: darkgreen;
+  border-radius: 0.5em;
+}
+
+nav ul ul li:not(:last-child)::after {
+  content: "|";
+  padding: .5em;
 }
 
 main {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+main h1 {
+  min-width: 0;
+}
+
+.shayuk-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .card img {
+  min-width: auto;
   max-width: 10em;
   border-radius: 50%;
 }
 
-.name {
-  margin: auto;
+.card .name {
+  margin: 0em auto;
   font-size: 1.25rem;
 }
 
-details,
-.card {
+.card,
+.card details {
   border: 1px solid #aaa;
   border-radius: 0.5em;
   padding: .5em;
@@ -50,4 +114,29 @@ details[open] {
 details[open] summary {
   border-bottom: 1px solid #aaa;
   margin-bottom: .5em;
+}
+
+a.return-arrow {
+  position: fixed;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+  left: calc(98% - 2em);
+  top: calc(98% - 2em);
+
+  padding: 0.25em;
+  width: 1em;
+  height: 1em;
+
+  border-radius: 50%;
+  font-size: 2em;
+  text-decoration: none;
+  background-color: forestgreen;
+  color: white;
+}
+
+a.return-arrow:hover {
+  background-color: gold;
+  color: blue;
 }
