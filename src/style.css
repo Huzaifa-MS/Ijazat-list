@@ -65,10 +65,19 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 75em;
 }
 
 main h1 {
   min-width: 0;
+}
+
+main h2 {
+  align-self: flex-start;
+}
+
+main section.intro {
+  align-self: flex-start;
 }
 
 .shayuk-list {
