@@ -50,7 +50,7 @@ nav>ul>ul>li>* {
   margin: 0.25em 0.25em;
 }
 
-nav>a {
+nav a {
   color: black;
 }
 
@@ -94,12 +94,10 @@ main h1 {
 .intro ul li:not(:last-child) p::after {
   display: block;
   z-index: 100;
-  position: relative;
-  right: 0px;
+  position: absolute;
   height: 0px;
-  bottom: .30em;
+  bottom: .35em;
   left: calc(100% - 1em);
-  margin: auto;
   content: '▼';
   color: black;
   font-size: 3rem;
@@ -121,6 +119,11 @@ main h1 {
 
 .intro ul li:nth-child(4) {
   margin-left: 15%;
+}
+
+main h1 {
+  max-width: 20em;
+  overflow-wrap: anywhere;
 }
 
 main h2 {
