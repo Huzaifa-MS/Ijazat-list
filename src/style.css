@@ -13,26 +13,35 @@ nav {
 nav>ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
   overflow-x: scroll;
   align-self: stretch;
-  list-style: none;
   margin: 0em;
   padding: 0.5em;
 }
 
-nav>ul>* {
-  padding: 0.5em;
+nav>ul>ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0em;
+  margin: 0em auto;
+  align-items: center;
 }
 
 @media screen and (min-width: 25rem) {
   nav>ul>ul {
-    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     list-style: none;
     align-self: stretch;
-    margin: 0em auto;
-    padding: 0em;
+  }
+
+  nav>ul>ul>li>* {
+    margin: .25em;
+    padding: .25em;
   }
 
   nav ul ul li:not(:last-child)::after {
@@ -43,11 +52,6 @@ nav>ul>* {
 
 nav ul li {
   align-items: center;
-}
-
-nav>ul>ul>li>* {
-  padding: 0.25em 0.25em;
-  margin: 0.25em 0.25em;
 }
 
 nav a {
@@ -63,6 +67,10 @@ nav ul a:hover {
   border-radius: 0.5em;
 }
 
+nav {
+  border-bottom: .1em solid black;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -73,6 +81,7 @@ main {
 
 main h1 {
   min-width: 0;
+  margin: 0.5em 0em 1em 0em;
   font-size: 3em;
   text-transform: uppercase;
 }
@@ -195,11 +204,11 @@ a.return-arrow {
   border-radius: 50%;
   font-size: 2em;
   text-decoration: none;
-  background-color: forestgreen;
+  background-color: black;
   color: white;
 }
 
 a.return-arrow:hover {
-  background-color: gold;
-  color: blue;
+  background-color: rgb(0, 149, 255);
+  color: gold;
 }
