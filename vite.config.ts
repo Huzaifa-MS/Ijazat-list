@@ -24,6 +24,7 @@ export default defineConfig({
     base: "/Ijazat-list/",
     build: {
         assetsInlineLimit: 0,
+        outDir: '../dist',
         emptyOutDir: true,
         rollupOptions: {
             input: inputFiles
