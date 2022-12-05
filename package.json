@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsc && vite",
-    "build": "tsc && vite build && ts-node --esm buildTimeScripts/fixLinks.ts && vite preview",
+    "build": "tsc && vite build && ts-node --esm buildTimeScripts/fixLinks.ts",
     "build2": "tsc && vite build",
     "preview": "vite preview",
     "bp": "tsc && vite build && vite preview",
