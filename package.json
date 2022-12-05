@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "tsc && vite",
-    "build": "tsc && vite build && ts-node --esm buildTimeScripts/fixLinks.ts",
+    "build": "tsc && vite build && ts-node --esm buildTimeScripts/buildMain.ts",
     "build2": "tsc && vite build",
     "preview": "vite preview",
     "bp": "tsc && vite build && vite preview",
     "tes": "npx ts-node --esm",
-    "t": "ts-node --esm buildTimeScripts/fixLinks.ts",
-    "bp2": "tsc && vite build && ts-node --esm buildTimeScripts/fixLinks.ts && vite preview"
+    "t": "ts-node --esm buildTimeScripts/buildMain.ts",
+    "bp2": "tsc && vite build && ts-node --esm buildTimeScripts/buildMain.ts && vite preview"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.31",
