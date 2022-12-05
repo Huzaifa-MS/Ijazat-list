@@ -1,0 +1,214 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+nav {
+  font-size: 1.5rem;
+  min-width: 100%;
+}
+
+nav>ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  overflow-x: scroll;
+  align-self: stretch;
+  margin: 0em;
+  padding: 0.5em;
+}
+
+nav>ul>ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0em;
+  margin: 0em auto;
+  align-items: center;
+}
+
+@media screen and (min-width: 25rem) {
+  nav>ul>ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    align-self: stretch;
+  }
+
+  nav>ul>ul>li>* {
+    margin: .25em;
+    padding: .25em;
+  }
+
+  nav ul ul li:not(:last-child)::after {
+    content: "|";
+    padding: .5em;
+  }
+}
+
+nav ul li {
+  align-items: center;
+}
+
+nav a {
+  color: black;
+}
+
+nav a:visited {
+  color: blue;
+}
+
+nav ul a:hover {
+  background-color: gold;
+  border-radius: 0.5em;
+}
+
+nav {
+  border-bottom: .1em solid black;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 75em;
+  padding: 0.5em;
+}
+
+main h1 {
+  min-width: 0;
+  margin: 0.5em 0em 1em 0em;
+  font-size: 3em;
+  text-transform: uppercase;
+}
+
+.intro ul {
+  list-style-type: none;
+  padding: 0em 0.5em;
+}
+
+.intro ul li p {
+  font-size: 1.5rem;
+  margin: 1rem 0rem;
+  background-color: rgb(0, 149, 255);
+  border-radius: .5rem;
+  padding: .5rem;
+  position: relative;
+}
+
+.intro ul li:not(:last-child) p::after {
+  display: block;
+  z-index: 100;
+  position: absolute;
+  height: 0px;
+  bottom: .35em;
+  left: calc(100% - 1em);
+  content: '▼';
+  color: black;
+  font-size: 3rem;
+}
+
+.intro ul li:nth-child(1) {
+  margin-right: 15%;
+}
+
+.intro ul li:nth-child(2) {
+  margin-right: 10%;
+  margin-left: 5%;
+}
+
+.intro ul li:nth-child(3) {
+  margin-right: 5%;
+  margin-left: 10%;
+}
+
+.intro ul li:nth-child(4) {
+  margin-left: 15%;
+}
+
+main h1 {
+  max-width: 20em;
+  overflow-wrap: anywhere;
+}
+
+main h2 {
+  align-self: flex-start;
+}
+
+main section.intro {
+  align-self: flex-start;
+}
+
+.shayuk-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card img {
+  min-width: auto;
+  max-width: 10em;
+  border-radius: 50%;
+}
+
+.card .name {
+  margin: 0em auto;
+  font-size: 1.25rem;
+}
+
+.card,
+.card details {
+  border: 1px solid #aaa;
+  border-radius: 0.5em;
+  padding: .5em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+summary {
+  font-weight: bold;
+  margin: -.5em -.5em 0;
+  padding: .5em;
+}
+
+details[open] {
+  padding: .5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: .5em;
+}
+
+a.return-arrow {
+  position: fixed;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+  left: calc(100% - 2em);
+  top: calc(100% - 2em);
+
+  padding: 0.25em;
+  width: 1em;
+  height: 1em;
+
+  border-radius: 50%;
+  font-size: 2em;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+}
+
+a.return-arrow:hover {
+  background-color: rgb(0, 149, 255);
+  color: gold;
+}
