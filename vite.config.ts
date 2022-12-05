@@ -23,6 +23,7 @@ export default defineConfig({
     root: "src",
     base: "/Ijazat-list/",
     build: {
+        assetsDir: 'public',
         assetsInlineLimit: 0,
         outDir: '../dist',
         emptyOutDir: true,

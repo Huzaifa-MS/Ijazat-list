@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 
 import * as cheerio from 'cheerio'
 import { readFileSync, writeFileSync } from "fs";
+import fse from 'fs-extra'
 
 const __filename = fileURLToPath(import.meta.url);
 const root = path.resolve(path.dirname(__filename), '..')
@@ -31,12 +32,36 @@ for (let index = 0; index < inputFilePaths.length; index++) {
         $(element).attr('href', x[_index])
     })
 
+    const y: string[] = []
+    $('img').each((_index, element) => {
+        console.log("---------------");
+
+        console.log($(element).attr('src'));
+
+        let src = $(element).attr('src')
+
+        y.push(`/Ijazat-list/public${src}`)
+    })
+    $('img').each((_index, element) => {
+        $(element).attr('src', y[_index])
+    })
+
+    console.log($('img').html());
+
+
 
     const newHtml = $.html()
     writeFileSync(fullFilePath, newHtml)
 
+    console.log(root);
+
+
+    const src = `${root}/public`
+    const dest = `${root}/dist/public`
+    try {
+        fse.copySync(src, dest, { overwrite: true })
+        console.log('success!')
+    } catch (err) {
+        console.error(err)
+    }
 }
-
-
-
-export { }
