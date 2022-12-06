@@ -1,4 +1,4 @@
-import { build, defineConfig } from 'vite'
+import { defineConfig, PluginOption } from 'vite'
 import { globbySync } from 'globby'
 import path from 'path'
 
@@ -16,12 +16,25 @@ for (let index = 0; index < inputFilePaths.length; index++) {
     }
 }
 
-console.log(inputFiles);
+const htmlPlugin = (): PluginOption => {
+    return {
+        name: 'html-transform',
+        enforce: 'pre',
+        transformIndexHtml(html, ctx) {
 
+            // replaces all links with proper ones for dev
+            return html.replace(
+                /<a href="\//g,
+                `<a href="/Ijazat-list/`
+            )
+        }
+    }
+}
 
 export default defineConfig({
     root: "src",
     base: "/Ijazat-list/",
+    publicDir: "../public",
     build: {
         assetsDir: 'public',
         assetsInlineLimit: 0,
@@ -30,5 +43,8 @@ export default defineConfig({
         rollupOptions: {
             input: inputFiles
         }
-    }
+    },
+    plugins: [
+        htmlPlugin()
+    ]
 })

@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import * as cheerio from 'cheerio'
 import { readFileSync, writeFileSync } from 'fs';
 import fse from 'fs-extra'
-import { prefixAttr } from './domManipulation.js';
+// import { prefixAttr } from './domManipulation.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const root = path.resolve(path.dirname(__filename), '..')
@@ -19,8 +19,8 @@ for (let index = 0; index < inputFilePaths.length; index++) {
     const html = readFileSync(fullFilePath)
     const $ = cheerio.load(html)
 
-    prefixAttr($, 'nav ul ul li a', 'href', 'Ijazat-list')
-    prefixAttr($, 'img', 'src', 'Ijazat-list/public')
+    // prefixAttr($, 'nav ul ul li a', 'href', 'Ijazat-list')
+    // prefixAttr($, 'img', 'src', 'Ijazat-list/public')
 
     const newHtml = $.html()
     writeFileSync(fullFilePath, newHtml)
