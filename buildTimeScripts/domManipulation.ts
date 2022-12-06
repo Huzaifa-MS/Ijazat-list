@@ -1,4 +1,4 @@
-export const fixLinks = ($: cheerio.Root, selector: string, attr: string, prefix: string) => {
+export const prefixAttr = ($: cheerio.Root, selector: string, attr: string, prefix: string) => {
     const attrs: string[] = []
     $(selector).each((_index, element) => {
         let elementAttr = $(element).attr(attr)
