@@ -1,54 +1,79 @@
-import { globbySync } from 'globby'
 import path from 'path'
+import { globbySync } from 'globby'
 import { fileURLToPath } from 'url';
-
-import * as cheerio from 'cheerio'
 import { readFileSync, writeFileSync } from 'fs';
+
 import fse from 'fs-extra'
+import * as cheerio from 'cheerio'
 import { PluginOption } from 'vite';
+
+import { templateMapping } from './template.json.js';
 // import { prefixAttr } from './domManipulation.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const root = path.resolve(path.dirname(__filename), '..')
 
-const inputFilePaths = globbySync('dist/**/*.html', { cwd: root })
 
-for (let index = 0; index < inputFilePaths.length; index++) {
+export const traverseFiles = () => {
+    const distFilePaths = globbySync('dist/**/*.html', { cwd: root })
+    for (let index = 0; index < distFilePaths.length; index++) {
 
-    const filePath = inputFilePaths[index]
-    const fullFilePath = path.resolve(root, filePath)
-    const html = readFileSync(fullFilePath)
-    const $ = cheerio.load(html)
+        const filePath = distFilePaths[index]
+        const fullFilePath = path.resolve(root, filePath)
+        const html = readFileSync(fullFilePath)
+        const $ = cheerio.load(html)
 
-    // prefixAttr($, 'nav ul ul li a', 'href', 'Ijazat-list')
-    // prefixAttr($, 'img', 'src', 'Ijazat-list/public')
+        // prefixAttr($, 'nav ul ul li a', 'href', 'Ijazat-list')
+        // prefixAttr($, 'img', 'src', 'Ijazat-list/public')
 
-    const newHtml = $.html()
-    writeFileSync(fullFilePath, newHtml)
+        const newHtml = $.html()
+        writeFileSync(fullFilePath, newHtml)
 
-    const src = `${root}/public`
-    const dest = `${root}/dist/public`
-    try {
-        fse.copySync(src, dest, { overwrite: true })
-        console.log('success!')
-    } catch (err) {
-        console.error(err)
+        const src = `${root}/public`
+        const dest = `${root}/dist/public`
+        try {
+            fse.copySync(src, dest, { overwrite: true })
+            console.log('success!')
+        } catch (err) {
+            console.error(err)
+        }
     }
 }
 
-const htmlPlugin = (): PluginOption => {
+export const htmlBuildPlugin = (): PluginOption => {
     return {
         name: 'html-transform',
-        enforce: 'pre',
-        transformIndexHtml(html, ctx) {
+        enforce: 'post',
+        transformIndexHtml(html, _ctx) {
+            let _html = html
+            _html = _html.replace(
+                /<!-- custom-navbar -->/,
+                templateMapping['<!-- custom-navbar -->']
+            )
 
-            // replaces all page links with proper ones for dev
-            // g at end of regex to replace all
-            let _html = html.replace(
-                /<a href="\//g,
+            // replaces all page links with proper ones for dev and production
+            _html = _html.replace(
+                /<a href="\/src\//g,
                 `<a href="/Ijazat-list/`
             )
+
             return _html
         }
     }
+}
+
+export const srcFilePaths = () => {
+    const srcInputFilePaths = globbySync('src/**/*.html', { cwd: root })
+    const srcFilePaths: any = {}
+    for (let index = 0; index < srcInputFilePaths.length; index++) {
+        const filePath = srcInputFilePaths[index]
+        const name = path.basename(filePath)
+        if (srcFilePaths[name]) {
+            srcFilePaths[filePath] = filePath
+        }
+        else {
+            srcFilePaths[name] = filePath
+        }
+    }
+    return srcFilePaths
 }
