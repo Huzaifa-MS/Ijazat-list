@@ -22,9 +22,9 @@ const htmlPlugin = (): PluginOption => {
         enforce: 'pre',
         transformIndexHtml(html, ctx) {
 
-            // replaces all links with proper ones for dev
+            // replaces all page links with proper ones for dev
             return html.replace(
-                /<a href="\//g,
+                /<a href="\/src\//g,
                 `<a href="/Ijazat-list/`
             )
         }

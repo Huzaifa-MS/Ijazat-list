@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import * as cheerio from 'cheerio'
 import { readFileSync, writeFileSync } from 'fs';
 import fse from 'fs-extra'
+import { PluginOption } from 'vite';
 // import { prefixAttr } from './domManipulation.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -32,5 +33,22 @@ for (let index = 0; index < inputFilePaths.length; index++) {
         console.log('success!')
     } catch (err) {
         console.error(err)
+    }
+}
+
+const htmlPlugin = (): PluginOption => {
+    return {
+        name: 'html-transform',
+        enforce: 'pre',
+        transformIndexHtml(html, ctx) {
+
+            // replaces all page links with proper ones for dev
+            // g at end of regex to replace all
+            let _html = html.replace(
+                /<a href="\//g,
+                `<a href="/Ijazat-list/`
+            )
+            return _html
+        }
     }
 }
