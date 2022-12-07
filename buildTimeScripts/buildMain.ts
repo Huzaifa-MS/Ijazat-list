@@ -46,15 +46,14 @@ export const htmlBuildPlugin = (): PluginOption => {
         transformIndexHtml(html, _ctx) {
             let _html = html
 
-
-
+            //replace template and components in html src
             for (var key in templateMapping) {
 
                 // keyof typeof to force compiler to treat key as constrained to keys of templateMapping 
                 const regEx = new RegExp(key, 'g')
                 const val = templateMapping[key as keyof typeof templateMapping]
 
-                _html = _html.replace(regEx, val)
+                _html = _html.replace(regEx, val!)
             }
 
             // replaces all page links with proper ones for dev and production
