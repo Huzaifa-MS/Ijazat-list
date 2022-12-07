@@ -1,25 +1,25 @@
 {
-    "shaykUthman": {
+    "Book1": {
         "picture": "/Ijazat-list/images/SheikUthmanIbnFarooq.webp",
-        "name": "Sheik Uthman Ibn Farooq",
+        "name": "Book1",
         "bio": "string",
         "university": "string",
         "teacher": "string",
         "books": "string",
         "Ijazaat": "string"
     },
-    "SheikKarimAbuZaid": {
+    "Book2": {
         "picture": "/Ijazat-list/images/SheikKarimAbuZaid.png",
-        "name": "Shayk Karim AbuZaid",
+        "name": "Book2",
         "bio": "string",
         "university": "string",
         "teacher": "string",
         "books": "string",
         "Ijazaat": "string"
     },
-    "ShaykIbrahimZidan": {
+    "Book3": {
         "picture": "/Ijazat-list/images/ShaykIbrahimZidan.jfif",
-        "name": "Shayk Ibrahim Zidan",
+        "name": "Book3",
         "bio": "string",
         "university": "string",
         "teacher": "string",

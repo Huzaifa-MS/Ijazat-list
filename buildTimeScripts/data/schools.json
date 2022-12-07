@@ -1,0 +1,29 @@
+{
+    "School1": {
+        "picture": "/Ijazat-list/images/SheikUthmanIbnFarooq.webp",
+        "name": "International Islamic University, Islamabad",
+        "filename": "islamabadUniversity",
+        "teachers": "string",
+        "books": "string",
+        "Ijazaat": "string",
+        "Shayuk": "stringlist"
+    },
+    "School2": {
+        "picture": "/Ijazat-list/images/SheikKarimAbuZaid.png",
+        "name": "Islamic University of Medina",
+        "filename": "medinaUniversity",
+        "teacher": "string",
+        "books": "string",
+        "Ijazaat": "string",
+        "Shayuk": "stringlist"
+    },
+    "School3": {
+        "picture": "/Ijazat-list/images/ShaykIbrahimZidan.jfif",
+        "name": "School3",
+        "filename": "islamicUniversity",
+        "teacher": "string",
+        "books": "string",
+        "Ijazaat": "string",
+        "Shayuk": "stringlist"
+    }
+}
