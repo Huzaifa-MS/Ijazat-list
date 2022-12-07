@@ -2,7 +2,6 @@ export const prefixAttr = ($: cheerio.Root, selector: string, attr: string, pref
     const attrs: string[] = []
     $(selector).each((_index, element) => {
         let elementAttr = $(element).attr(attr)
-        console.log($(element).attr());
 
         attrs.push(`/${prefix}${elementAttr}`)
     })

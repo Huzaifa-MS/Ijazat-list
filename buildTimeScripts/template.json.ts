@@ -2,7 +2,7 @@
 // const navbar = readFileSync()
 
 export const templateMapping = {
-    '<!-- custom-navbar -->': `
+    '<!-- navbar -->': `
         <nav>
             <ul>
                 <li>*Logo Here*</li>

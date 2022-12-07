@@ -1,8 +1,6 @@
 import { defineConfig, PluginOption } from 'vite'
 import { htmlBuildPlugin, srcFilePaths } from './buildTimeScripts/buildMain'
 
-
-console.log(srcFilePaths());
 export default defineConfig({
     root: "src",
     base: "/Ijazat-list/",

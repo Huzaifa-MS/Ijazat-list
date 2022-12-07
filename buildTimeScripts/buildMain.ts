@@ -13,8 +13,7 @@ import { templateMapping } from './template.json.js';
 const __filename = fileURLToPath(import.meta.url);
 const root = path.resolve(path.dirname(__filename), '..')
 
-
-export const traverseFiles = () => {
+export const traverseDistFiles = () => {
     const distFilePaths = globbySync('dist/**/*.html', { cwd: root })
     for (let index = 0; index < distFilePaths.length; index++) {
 
@@ -46,10 +45,17 @@ export const htmlBuildPlugin = (): PluginOption => {
         enforce: 'post',
         transformIndexHtml(html, _ctx) {
             let _html = html
-            _html = _html.replace(
-                /<!-- custom-navbar -->/,
-                templateMapping['<!-- custom-navbar -->']
-            )
+
+
+
+            for (var key in templateMapping) {
+
+                // keyof typeof to force compiler to treat key as constrained to keys of templateMapping 
+                const regEx = new RegExp(key, 'g')
+                const val = templateMapping[key as keyof typeof templateMapping]
+
+                _html = _html.replace(regEx, val)
+            }
 
             // replaces all page links with proper ones for dev and production
             _html = _html.replace(
