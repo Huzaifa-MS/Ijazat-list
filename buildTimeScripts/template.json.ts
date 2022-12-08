@@ -18,10 +18,6 @@ const injectDataInTemplate = (template: string, data: any) => {
     let _template = template
     for (const attribute in data) {
         const regEx = new RegExp(`<!-- ${attribute} -->`, 'g')
-        console.log(regEx);
-        console.log(_template.match(regEx));
-        console.log(data[attribute]);
-
 
         _template = _template.replace(regEx, data[attribute])
     }
@@ -76,6 +72,9 @@ const getAllSchools = () => {
     return schoolsHtml
 }
 
+//It is possible to move this to a file
+//Watch that file 
+//Run some script to update html.json snippet on file change
 export const templateMapping = {
     '<!-- navbar -->': navbarComponent,
     '<!-- allShayuk -->': getAllShayuk(),
