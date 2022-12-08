@@ -150,14 +150,17 @@ main section.intro {
 }
 
 .card img {
-  min-width: auto;
+  min-width: 5em;
   max-width: 10em;
   border-radius: 50%;
 }
 
 .card .name {
-  margin: 0em auto;
   font-size: 1.25rem;
+  text-align: center;
+  margin-top: 0em;
+  max-height: 2em;
+  min-height: 2em;
 }
 
 .card,
@@ -170,17 +173,19 @@ main section.intro {
 .card {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 1em;
+  max-width: 20em;
 }
 
-summary {
-  font-weight: bold;
-  margin: -.5em -.5em 0;
+
+details {
   padding: .5em;
+  min-width: calc(100% - 1rem);
 }
 
-details[open] {
-  padding: .5em;
+details summary {
+  text-align: center;
 }
 
 details[open] summary {
