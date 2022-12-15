@@ -64,6 +64,7 @@ nav a:visited {
 
 nav ul a:hover {
   background-color: gold;
+  color: black;
   border-radius: 0.5em;
 }
 
@@ -84,6 +85,7 @@ main h1 {
   margin: 0.5em 0em 1em 0em;
   font-size: 3em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .intro ul {
@@ -176,6 +178,7 @@ main section.intro {
   align-items: center;
   margin: 1em;
   max-width: 20em;
+  min-width: 20em;
 }
 
 
