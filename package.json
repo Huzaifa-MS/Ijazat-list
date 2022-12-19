@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.31",
+    "@types/crypto-js": "^4.1.1",
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.11.9",
     "cheerio": "^1.0.0-rc.12",
@@ -25,6 +26,8 @@
     "vite": "^3.2.3"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.231.0"
+    "@aws-sdk/client-s3": "^3.231.0",
+    "buffer": "^6.0.2",
+    "crypto-js": "^4.1.1"
   }
 }

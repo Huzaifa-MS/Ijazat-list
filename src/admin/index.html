@@ -14,9 +14,25 @@
 
     <main>
         <h1>Edit Data from bucket</h1>
-        <button>Fetch data</button>
-        <p>Data: </p>
-        <section id="data-form">
+        <form id="login-form">
+            <legend>Login credentials</legend>
+            <label>Username:
+                <input placeholder="user1" id="username" type="text">
+            </label>
+            <label>Password:
+                <input placeholder="Password123" id="password" type="password">
+            </label>
+            <button type="button">Login</button>
+        </form>
+
+        <h2 class="no-pm">Files on Server</h2>
+        <section id="bucket-outline">
+            <ul id="files">
+            </ul>
+        </section>
+        <p></p>
+
+        <section id="data-form" hidden>
 
         </section>
 
