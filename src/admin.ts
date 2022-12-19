@@ -12,6 +12,10 @@ const button = $<HTMLButtonElement>('main button')
 const output = $<HTMLParagraphElement>('main p')
 const usernameInput = $<HTMLInputElement>('#username')
 const passwordInput = $<HTMLInputElement>('#password')
+
+const bucketOutline = $<HTMLElement>('#bucket-outline')
+const currentFile = $<HTMLElement>('#current-file')
+
 button?.addEventListener("click", async () => {
     const bucket = 'Shayuks-Ijazaats'
     //TODO: MAKE NEW KEYS THESE ARE COMPROMISED
@@ -43,6 +47,8 @@ button?.addEventListener("click", async () => {
             secretAccessKey: appKey,
         }
     })
+    const bucketOutline = $<HTMLElement>('#bucket-outline')
+    const currentFile = $<HTMLElement>('#current-file')
 
     try {
         const data = await s3.listObjectsV2({ Bucket: bucket })
@@ -58,6 +64,20 @@ button?.addEventListener("click", async () => {
             const li = document.createElement('li')
             const button = document.createElement('button')
             file.Key ? button.innerText = file.Key : 0
+            button.addEventListener('click', async (ev) => {
+                const data2 = await s3.getObject({ Bucket: bucket, Key: file.Key })
+                const objectContent = await data2.Body?.transformToString()
+                console.log(objectContent)
+
+                bucketOutline!.hidden = true
+
+                currentFile!.hidden = false
+
+                const dataP = document.createElement('p')
+                dataP.innerText = `${objectContent}`
+
+                currentFile?.appendChild(dataP)
+            })
             li.appendChild(button)
             fileList ? fileList.appendChild(li) : 0
         }
@@ -68,7 +88,12 @@ button?.addEventListener("click", async () => {
 
 })
 
-
+const outlineHomeButton = $<HTMLButtonElement>('#outline-home-button')
+outlineHomeButton!.addEventListener('click', () => {
+    bucketOutline!.hidden = false
+    currentFile!.innerHTML = ''
+    currentFile!.hidden = true
+})
 
 export { }
 
