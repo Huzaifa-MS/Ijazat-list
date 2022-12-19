@@ -294,3 +294,8 @@ button:active {
 button {
   transition: all 0.3s;
 }
+
+#debug {
+  overflow-wrap: anywhere;
+
+}
