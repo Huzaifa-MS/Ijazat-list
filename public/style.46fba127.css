@@ -64,6 +64,7 @@ nav a:visited {
 
 nav ul a:hover {
   background-color: gold;
+  color: black;
   border-radius: 0.5em;
 }
 
@@ -81,9 +82,10 @@ main {
 
 main h1 {
   min-width: 0;
-  margin: 0.5em 0em 1em 0em;
+  margin: 0.5em 0em 0.5em 0em;
   font-size: 3em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .intro ul {
@@ -176,6 +178,7 @@ main section.intro {
   align-items: center;
   margin: 1em;
   max-width: 20em;
+  min-width: 20em;
 }
 
 
@@ -216,4 +219,70 @@ a.return-arrow {
 a.return-arrow:hover {
   background-color: rgb(0, 149, 255);
   color: gold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted black;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+.no-pm {
+  padding: 0;
+  margin: 0;
+}
+
+form legend {
+  font-size: 2rem;
+  font-style: italic;
+}
+
+form * {
+  margin: 0em;
+  padding: .5em;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+
+#bucket-outline {
+  min-width: 100%;
+  margin: 0.5em;
+  border: 1px solid black;
+  border-radius: 0.5em;
+}
+
+#bucket-outline #files {
+  display: flex;
+  flex-direction: column;
+  margin: 0em;
+  padding: 0em;
+}
+
+#bucket-outline #files li {
+  list-style-type: none;
+  display: flex;
+}
+
+#bucket-outline #files button {
+  padding: 0.5em;
+  margin: 0.5em;
+  font-size: 1.5rem;
+  text-align: left;
+  border: 1px solid #aaa;
+  border-radius: 0.5em;
+  width: 100%;
+
+  transition: all 0.3s;
+}
+
+#bucket-outline #files button:hover {
+  background-color: yellow;
+}
+
+#bucket-outline #files button:active {
+  background-color: aqua;
+  transform: translateY(2px);
 }
