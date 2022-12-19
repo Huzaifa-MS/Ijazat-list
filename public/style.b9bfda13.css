@@ -246,6 +246,10 @@ form * {
   min-width: 0;
 }
 
+main>button {
+  align-self: flex-start;
+}
+
 
 #bucket-outline {
   min-width: 100%;
@@ -278,11 +282,15 @@ form * {
   transition: all 0.3s;
 }
 
-#bucket-outline #files button:hover {
+button:hover {
   background-color: yellow;
 }
 
-#bucket-outline #files button:active {
+button:active {
   background-color: aqua;
   transform: translateY(2px);
+}
+
+button {
+  transition: all 0.3s;
 }
